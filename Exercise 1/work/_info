@@ -1,0 +1,63 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/tcfst-class/Desktop/ZZZZ/test/Exercise 1
+T_opt
+!s110 1663399683
+V2BzXAj5Glg9o@g940WkZ@3
+04 9 4 work testbench fast 0
+=6-2cf05ddf9889-63257703-c9-359c
+o-quiet -auto_acc_if_foreign -work work -debugdb
+Z1 tCvgOpt 0
+n@_opt
+OE;O;10.5c;63
+R0
+vEx_1
+Z2 !s110 1663399983
+!i10b 1
+!s100 EUdS>e58K5P3[0JO3Ia972
+Ia0U0GR<[BO`K4UaZPLa_`2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1663399153
+8EX_101.v
+FEX_101.v
+L0 3
+Z4 OE;L;10.5c;63
+r1
+!s85 0
+31
+Z5 !s108 1663399983.000000
+!s107 EX_101.v|
+!s90 -reportprogress|300|EX_101.v|
+!i113 0
+Z6 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R1
+n@ex_1
+vtestbench
+R2
+!i10b 1
+!s100 ^=<d5W=lWPMFf0U6m?lPh2
+ID6n>OQ=Fb=5[[KFI?UMHl1
+R3
+R0
+w1663399669
+8EX_101_tb.v
+FEX_101_tb.v
+L0 3
+R4
+r1
+!s85 0
+31
+R5
+!s107 EX_101_tb.v|
+!s90 -reportprogress|300|EX_101_tb.v|
+!i113 0
+R6
+R1

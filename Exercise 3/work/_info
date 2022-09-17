@@ -1,0 +1,59 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/tcfst-class/Desktop/ZZZZ/test/Exercise 3
+T_opt
+!s110 1663423744
+Vk`FUB0Miz@iW2`nJn?USN1
+04 9 4 work testbench fast 0
+=1-7085c2cd57df-6325d500-e9-46b8
+o-quiet -auto_acc_if_foreign -work work -debugdb
+n@_opt
+OL;O;10.4;61
+vEX_105_test_mux_2
+Z0 !s110 1663423743
+!i10b 1
+!s100 <PcRSAJ6230;3bPc:>1153
+IniKlKeLjokTH@l3M7KBmF1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/Tyrael/Documents/GitHub/Verilog Train/Exercise 3
+w1663405474
+8EX_105.v
+FEX_105.v
+L0 3
+Z3 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1663423743.684000
+!s107 EX_105.v|
+!s90 -reportprogress|300|EX_105.v|
+!i113 0
+Z4 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@e@x_105_test_mux_2
+vtestbench
+R0
+!i10b 1
+!s100 ViamE;c8EU]JQ>SZm]fYF3
+IoCKO9gZ?BPXCFjX9E_=1^1
+R1
+R2
+w1663405764
+8EX_105_tb.v
+FEX_105_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1663423743.729000
+!s107 EX_105_tb.v|
+!s90 -reportprogress|300|EX_105_tb.v|
+!i113 0
+R4
