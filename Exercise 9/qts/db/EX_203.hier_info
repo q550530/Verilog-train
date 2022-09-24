@@ -1,0 +1,47 @@
+|EX_203
+a[0] => g.DATAB
+a[1] => g.DATAB
+a[2] => g.DATAB
+a[3] => g.DATAB
+b[0] => g.DATAB
+b[1] => g.DATAB
+b[2] => g.DATAB
+b[3] => g.DATAB
+c[0] => g.DATAA
+c[1] => g.DATAA
+c[2] => g.DATAA
+c[3] => g.DATAA
+d[0] => g.DATAB
+d[1] => g.DATAB
+d[2] => g.DATAB
+d[3] => g.DATAB
+e[0] => g.DATAB
+e[1] => g.DATAB
+e[2] => g.DATAB
+e[3] => g.DATAB
+f[0] => g.DATAA
+f[1] => g.DATAA
+f[2] => g.DATAA
+f[3] => g.DATAA
+sel1 => g.OUTPUTSELECT
+sel1 => g.OUTPUTSELECT
+sel1 => g.OUTPUTSELECT
+sel1 => g.OUTPUTSELECT
+sel2 => g.OUTPUTSELECT
+sel2 => g.OUTPUTSELECT
+sel2 => g.OUTPUTSELECT
+sel2 => g.OUTPUTSELECT
+sel3 => g.OUTPUTSELECT
+sel3 => g.OUTPUTSELECT
+sel3 => g.OUTPUTSELECT
+sel3 => g.OUTPUTSELECT
+sel4 => g.OUTPUTSELECT
+sel4 => g.OUTPUTSELECT
+sel4 => g.OUTPUTSELECT
+sel4 => g.OUTPUTSELECT
+sel5 => g.OUTPUTSELECT
+sel5 => g.OUTPUTSELECT
+sel5 => g.OUTPUTSELECT
+sel5 => g.OUTPUTSELECT
+
+
