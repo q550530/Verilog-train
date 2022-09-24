@@ -1,4 +1,9 @@
 # Verilog學習筆記
+**基本語法**   
+
+
+
+
 **位元表示** 
 
 1.組合  
@@ -31,9 +36,11 @@
  wire [7:0] c,d,e;
  wire [7:0] temp;
  
+ //直接以組合延伸a
   assign c=d+{8'h00,a};
-  assign temp = {{8{a[3]}},
-  a};
+  
+  // 有號數a延伸
+  assign temp = {{8{a[3]}}, a};
   assign e= temp + d;
  
  
