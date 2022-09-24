@@ -26,4 +26,17 @@
  * 16 bit : SSSS_SSSS_SSSS_Sbbb 
  
  有號數拓展會以最終位的延伸
+ ```
+ wire [3:0] a;
+ wire [7:0] c,d,e;
+ wire [7:0] temp;
+ 
+  assign c=d+{8'h00,a};
+  assign temp = {{8{a[3]}},
+  a};
+  assign e= temp + d;
+ 
+ 
+ ```
+ 
  ---------------------------- 
