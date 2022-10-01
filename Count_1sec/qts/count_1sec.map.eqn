@@ -1,0 +1,894 @@
+-- Copyright (C) 1991-2005 Altera Corporation
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and its AMPP partner logic 
+-- functions, and any output files any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, Altera MegaCore Function License 
+-- Agreement, or other applicable license agreement, including, 
+-- without limitation, that your use is for the sole purpose of 
+-- programming logic devices manufactured by Altera and sold by 
+-- Altera or its authorized distributors.  Please refer to the 
+-- applicable agreement for further details.
+--E1_cnt_d2_reg[0] is timer:timer|cnt_d2_reg[0]
+--operation mode is normal
+
+E1_cnt_d2_reg[0]_lut_out = !E1_cnt_d2_reg[0];
+E1_cnt_d2_reg[0] = DFFEAS(E1_cnt_d2_reg[0]_lut_out, clk, reset, , E1L14, , , , );
+
+
+--B1_seg_scan_cnt[1] is count:count|seg_scan_cnt[1]
+--operation mode is normal
+
+B1_seg_scan_cnt[1]_lut_out = B1_seg_scan_cnt[1] $ (B1_seg_scan_cnt[0] & B1_hz_500_reg);
+B1_seg_scan_cnt[1] = DFFEAS(B1_seg_scan_cnt[1]_lut_out, clk, reset, , , , , , );
+
+
+--E1_cnt_d1_reg[0] is timer:timer|cnt_d1_reg[0]
+--operation mode is normal
+
+E1_cnt_d1_reg[0]_lut_out = !E1_cnt_d1_reg[0];
+E1_cnt_d1_reg[0] = DFFEAS(E1_cnt_d1_reg[0]_lut_out, clk, reset, , E1L8, , , , );
+
+
+--B1_seg_scan_cnt[0] is count:count|seg_scan_cnt[0]
+--operation mode is normal
+
+B1_seg_scan_cnt[0]_lut_out = !B1_seg_scan_cnt[0];
+B1_seg_scan_cnt[0] = DFFEAS(B1_seg_scan_cnt[0]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--E1_cnt_d0_reg[0] is timer:timer|cnt_d0_reg[0]
+--operation mode is normal
+
+E1_cnt_d0_reg[0]_lut_out = !E1_cnt_d0_reg[0];
+E1_cnt_d0_reg[0] = DFFEAS(E1_cnt_d0_reg[0]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--D1L5 is seven_seg:seven_seg|hex_digit[0]~56
+--operation mode is normal
+
+D1L5 = B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0]) # !B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0] & E1_cnt_d1_reg[0] # !B1_seg_scan_cnt[0] & (E1_cnt_d0_reg[0]));
+
+
+--E1_cnt_d3_reg[0] is timer:timer|cnt_d3_reg[0]
+--operation mode is normal
+
+E1_cnt_d3_reg[0]_lut_out = !E1_cnt_d3_reg[0];
+E1_cnt_d3_reg[0] = DFFEAS(E1_cnt_d3_reg[0]_lut_out, clk, reset, , E1L20, , , , );
+
+
+--D1L6 is seven_seg:seven_seg|hex_digit[0]~57
+--operation mode is normal
+
+D1L6 = B1_seg_scan_cnt[1] & (D1L5 & (E1_cnt_d3_reg[0]) # !D1L5 & E1_cnt_d2_reg[0]) # !B1_seg_scan_cnt[1] & (D1L5);
+
+
+--E1_cnt_d2_reg[1] is timer:timer|cnt_d2_reg[1]
+--operation mode is normal
+
+E1_cnt_d2_reg[1]_lut_out = E1_cnt_d2_reg[1] & (!E1_cnt_d2_reg[0]) # !E1_cnt_d2_reg[1] & E1_cnt_d2_reg[0] & (E1_cnt_d2_reg[2] # !E1_cnt_d2_reg[3]);
+E1_cnt_d2_reg[1] = DFFEAS(E1_cnt_d2_reg[1]_lut_out, clk, reset, , E1L14, , , , );
+
+
+--E1_cnt_d1_reg[1] is timer:timer|cnt_d1_reg[1]
+--operation mode is normal
+
+E1_cnt_d1_reg[1]_lut_out = E1_cnt_d1_reg[1] & (!E1_cnt_d1_reg[0]) # !E1_cnt_d1_reg[1] & E1_cnt_d1_reg[0] & (E1_cnt_d1_reg[2] # !E1_cnt_d1_reg[3]);
+E1_cnt_d1_reg[1] = DFFEAS(E1_cnt_d1_reg[1]_lut_out, clk, reset, , E1L8, , , , );
+
+
+--E1_cnt_d0_reg[1] is timer:timer|cnt_d0_reg[1]
+--operation mode is normal
+
+E1_cnt_d0_reg[1]_lut_out = E1_cnt_d0_reg[1] & (!E1_cnt_d0_reg[0]) # !E1_cnt_d0_reg[1] & E1_cnt_d0_reg[0] & (E1_cnt_d0_reg[2] # !E1_cnt_d0_reg[3]);
+E1_cnt_d0_reg[1] = DFFEAS(E1_cnt_d0_reg[1]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--D1L7 is seven_seg:seven_seg|hex_digit[1]~58
+--operation mode is normal
+
+D1L7 = B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0]) # !B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0] & E1_cnt_d1_reg[1] # !B1_seg_scan_cnt[0] & (E1_cnt_d0_reg[1]));
+
+
+--E1_cnt_d3_reg[1] is timer:timer|cnt_d3_reg[1]
+--operation mode is normal
+
+E1_cnt_d3_reg[1]_lut_out = E1_cnt_d3_reg[1] & (!E1_cnt_d3_reg[0]) # !E1_cnt_d3_reg[1] & E1_cnt_d3_reg[0] & (E1_cnt_d3_reg[2] # !E1_cnt_d3_reg[3]);
+E1_cnt_d3_reg[1] = DFFEAS(E1_cnt_d3_reg[1]_lut_out, clk, reset, , E1L20, , , , );
+
+
+--D1L8 is seven_seg:seven_seg|hex_digit[1]~59
+--operation mode is normal
+
+D1L8 = B1_seg_scan_cnt[1] & (D1L7 & (E1_cnt_d3_reg[1]) # !D1L7 & E1_cnt_d2_reg[1]) # !B1_seg_scan_cnt[1] & (D1L7);
+
+
+--E1_cnt_d2_reg[2] is timer:timer|cnt_d2_reg[2]
+--operation mode is normal
+
+E1_cnt_d2_reg[2]_lut_out = E1_cnt_d2_reg[2] $ (E1_cnt_d2_reg[0] & E1_cnt_d2_reg[1] & E1L14);
+E1_cnt_d2_reg[2] = DFFEAS(E1_cnt_d2_reg[2]_lut_out, clk, reset, , , , , , );
+
+
+--E1_cnt_d1_reg[2] is timer:timer|cnt_d1_reg[2]
+--operation mode is normal
+
+E1_cnt_d1_reg[2]_lut_out = E1_cnt_d1_reg[2] $ (E1_cnt_d1_reg[0] & E1_cnt_d1_reg[1] & E1L8);
+E1_cnt_d1_reg[2] = DFFEAS(E1_cnt_d1_reg[2]_lut_out, clk, reset, , , , , , );
+
+
+--E1_cnt_d0_reg[2] is timer:timer|cnt_d0_reg[2]
+--operation mode is normal
+
+E1_cnt_d0_reg[2]_lut_out = E1_cnt_d0_reg[2] $ (E1_cnt_d0_reg[0] & E1_cnt_d0_reg[1] & B1_one_sec_reg);
+E1_cnt_d0_reg[2] = DFFEAS(E1_cnt_d0_reg[2]_lut_out, clk, reset, , , , , , );
+
+
+--D1L9 is seven_seg:seven_seg|hex_digit[2]~60
+--operation mode is normal
+
+D1L9 = B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0]) # !B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0] & E1_cnt_d1_reg[2] # !B1_seg_scan_cnt[0] & (E1_cnt_d0_reg[2]));
+
+
+--E1_cnt_d3_reg[2] is timer:timer|cnt_d3_reg[2]
+--operation mode is normal
+
+E1_cnt_d3_reg[2]_lut_out = E1_cnt_d3_reg[2] $ (E1_cnt_d3_reg[0] & E1_cnt_d3_reg[1] & E1L20);
+E1_cnt_d3_reg[2] = DFFEAS(E1_cnt_d3_reg[2]_lut_out, clk, reset, , , , , , );
+
+
+--D1L10 is seven_seg:seven_seg|hex_digit[2]~61
+--operation mode is normal
+
+D1L10 = B1_seg_scan_cnt[1] & (D1L9 & (E1_cnt_d3_reg[2]) # !D1L9 & E1_cnt_d2_reg[2]) # !B1_seg_scan_cnt[1] & (D1L9);
+
+
+--E1_cnt_d1_reg[3] is timer:timer|cnt_d1_reg[3]
+--operation mode is normal
+
+E1_cnt_d1_reg[3]_lut_out = E1_cnt_d1_reg[3] & (E1_cnt_d1_reg[1] $ E1_cnt_d1_reg[2] # !E1_cnt_d1_reg[0]) # !E1_cnt_d1_reg[3] & E1_cnt_d1_reg[1] & E1_cnt_d1_reg[2] & E1_cnt_d1_reg[0];
+E1_cnt_d1_reg[3] = DFFEAS(E1_cnt_d1_reg[3]_lut_out, clk, reset, , E1L8, , , , );
+
+
+--E1_cnt_d2_reg[3] is timer:timer|cnt_d2_reg[3]
+--operation mode is normal
+
+E1_cnt_d2_reg[3]_lut_out = E1_cnt_d2_reg[3] & (E1_cnt_d2_reg[1] $ E1_cnt_d2_reg[2] # !E1_cnt_d2_reg[0]) # !E1_cnt_d2_reg[3] & E1_cnt_d2_reg[1] & E1_cnt_d2_reg[2] & E1_cnt_d2_reg[0];
+E1_cnt_d2_reg[3] = DFFEAS(E1_cnt_d2_reg[3]_lut_out, clk, reset, , E1L14, , , , );
+
+
+--E1_cnt_d0_reg[3] is timer:timer|cnt_d0_reg[3]
+--operation mode is normal
+
+E1_cnt_d0_reg[3]_lut_out = E1_cnt_d0_reg[3] & (E1_cnt_d0_reg[1] $ E1_cnt_d0_reg[2] # !E1_cnt_d0_reg[0]) # !E1_cnt_d0_reg[3] & E1_cnt_d0_reg[1] & E1_cnt_d0_reg[2] & E1_cnt_d0_reg[0];
+E1_cnt_d0_reg[3] = DFFEAS(E1_cnt_d0_reg[3]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--D1L11 is seven_seg:seven_seg|hex_digit[3]~62
+--operation mode is normal
+
+D1L11 = B1_seg_scan_cnt[0] & (B1_seg_scan_cnt[1]) # !B1_seg_scan_cnt[0] & (B1_seg_scan_cnt[1] & E1_cnt_d2_reg[3] # !B1_seg_scan_cnt[1] & (E1_cnt_d0_reg[3]));
+
+
+--E1_cnt_d3_reg[3] is timer:timer|cnt_d3_reg[3]
+--operation mode is normal
+
+E1_cnt_d3_reg[3]_lut_out = E1_cnt_d3_reg[3] & (E1_cnt_d3_reg[1] $ E1_cnt_d3_reg[2] # !E1_cnt_d3_reg[0]) # !E1_cnt_d3_reg[3] & E1_cnt_d3_reg[1] & E1_cnt_d3_reg[2] & E1_cnt_d3_reg[0];
+E1_cnt_d3_reg[3] = DFFEAS(E1_cnt_d3_reg[3]_lut_out, clk, reset, , E1L20, , , , );
+
+
+--D1L12 is seven_seg:seven_seg|hex_digit[3]~63
+--operation mode is normal
+
+D1L12 = B1_seg_scan_cnt[0] & (D1L11 & (E1_cnt_d3_reg[3]) # !D1L11 & E1_cnt_d1_reg[3]) # !B1_seg_scan_cnt[0] & (D1L11);
+
+
+--D1L13 is seven_seg:seven_seg|seg_a~9
+--operation mode is normal
+
+D1L13 = D1L10 & !D1L8 & (D1L6 $ !D1L12) # !D1L10 & D1L6 & (D1L8 $ !D1L12);
+
+
+--D1L14 is seven_seg:seven_seg|seg_b~11
+--operation mode is normal
+
+D1L14 = D1L8 & (D1L6 & (D1L12) # !D1L6 & D1L10) # !D1L8 & D1L10 & (D1L6 $ D1L12);
+
+
+--D1L15 is seven_seg:seven_seg|seg_c~9
+--operation mode is normal
+
+D1L15 = D1L10 & D1L12 & (D1L8 # !D1L6) # !D1L10 & !D1L6 & D1L8 & !D1L12;
+
+
+--D1L18 is seven_seg:seven_seg|seg_d~10
+--operation mode is normal
+
+D1L18 = D1L8 & (D1L6 & D1L10 # !D1L6 & !D1L10 & D1L12) # !D1L8 & !D1L12 & (D1L6 $ D1L10);
+
+
+--D1L19 is seven_seg:seven_seg|seg_e~11
+--operation mode is normal
+
+D1L19 = D1L8 & D1L6 & (!D1L12) # !D1L8 & (D1L10 & (!D1L12) # !D1L10 & D1L6);
+
+
+--D1L20 is seven_seg:seven_seg|seg_f~10
+--operation mode is normal
+
+D1L20 = D1L6 & (D1L12 $ (D1L8 # !D1L10)) # !D1L6 & D1L8 & !D1L10 & !D1L12;
+
+
+--D1L21 is seven_seg:seven_seg|seg_g~9
+--operation mode is normal
+
+D1L21 = D1L6 & (D1L12 # D1L8 $ D1L10) # !D1L6 & (D1L8 # D1L10 $ D1L12);
+
+
+--C1_sft_reg[2] is dp_flash_ctl:dp_flash_ctl|sft_reg[2]
+--operation mode is normal
+
+C1_sft_reg[2]_lut_out = C1_sft_reg[1];
+C1_sft_reg[2] = DFFEAS(C1_sft_reg[2]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--C1_sft_reg[1] is dp_flash_ctl:dp_flash_ctl|sft_reg[1]
+--operation mode is normal
+
+C1_sft_reg[1]_lut_out = !C1_sft_reg[0];
+C1_sft_reg[1] = DFFEAS(C1_sft_reg[1]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--C1_sft_reg[0] is dp_flash_ctl:dp_flash_ctl|sft_reg[0]
+--operation mode is normal
+
+C1_sft_reg[0]_lut_out = !C1_sft_reg[3];
+C1_sft_reg[0] = DFFEAS(C1_sft_reg[0]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--D1L16 is seven_seg:seven_seg|seg_data_dp~22
+--operation mode is normal
+
+D1L16 = B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0]) # !B1_seg_scan_cnt[1] & (B1_seg_scan_cnt[0] & C1_sft_reg[1] # !B1_seg_scan_cnt[0] & (!C1_sft_reg[0]));
+
+
+--C1_sft_reg[3] is dp_flash_ctl:dp_flash_ctl|sft_reg[3]
+--operation mode is normal
+
+C1_sft_reg[3]_lut_out = C1_sft_reg[2];
+C1_sft_reg[3] = DFFEAS(C1_sft_reg[3]_lut_out, clk, reset, , B1_one_sec_reg, , , , );
+
+
+--D1L17 is seven_seg:seven_seg|seg_data_dp~23
+--operation mode is normal
+
+D1L17 = B1_seg_scan_cnt[1] & (D1L16 & (C1_sft_reg[3]) # !D1L16 & C1_sft_reg[2]) # !B1_seg_scan_cnt[1] & (D1L16);
+
+
+--D1L1 is seven_seg:seven_seg|Decoder~112
+--operation mode is normal
+
+D1L1 = B1_seg_scan_cnt[1] # B1_seg_scan_cnt[0];
+
+
+--D1L2 is seven_seg:seven_seg|Decoder~113
+--operation mode is normal
+
+D1L2 = B1_seg_scan_cnt[0] & (!B1_seg_scan_cnt[1]);
+
+
+--D1L3 is seven_seg:seven_seg|Decoder~114
+--operation mode is normal
+
+D1L3 = B1_seg_scan_cnt[1] & (!B1_seg_scan_cnt[0]);
+
+
+--D1L4 is seven_seg:seven_seg|Decoder~115
+--operation mode is normal
+
+D1L4 = B1_seg_scan_cnt[1] & B1_seg_scan_cnt[0];
+
+
+--A1L7 is rtl~267
+--operation mode is normal
+
+A1L7 = E1_cnt_d1_reg[0] & E1_cnt_d1_reg[3] & !E1_cnt_d1_reg[1] & !E1_cnt_d1_reg[2];
+
+
+--B1_one_sec_reg is count:count|one_sec_reg
+--operation mode is normal
+
+B1_one_sec_reg_lut_out = B1_hz_500_reg & A1L10 & B1_cnt_one_sec[1] & A1L11;
+B1_one_sec_reg = DFFEAS(B1_one_sec_reg_lut_out, clk, reset, , , , , , );
+
+
+--A1L8 is rtl~268
+--operation mode is normal
+
+A1L8 = E1_cnt_d0_reg[0] & E1_cnt_d0_reg[3] & !E1_cnt_d0_reg[1] & !E1_cnt_d0_reg[2];
+
+
+--E1L14 is timer:timer|cnt_d2_reg[0]~137
+--operation mode is normal
+
+E1L14 = A1L7 & B1_one_sec_reg & A1L8;
+
+
+--B1_hz_500_reg is count:count|hz_500_reg
+--operation mode is normal
+
+B1_hz_500_reg_lut_out = A1L16;
+B1_hz_500_reg = DFFEAS(B1_hz_500_reg_lut_out, clk, reset, , , , , , );
+
+
+--E1L8 is timer:timer|cnt_d1_reg[0]~129
+--operation mode is normal
+
+E1L8 = B1_one_sec_reg & A1L8;
+
+
+--A1L9 is rtl~269
+--operation mode is normal
+
+A1L9 = E1_cnt_d2_reg[0] & E1_cnt_d2_reg[3] & !E1_cnt_d2_reg[1] & !E1_cnt_d2_reg[2];
+
+
+--E1L20 is timer:timer|cnt_d3_reg[0]~7
+--operation mode is normal
+
+E1L20 = A1L7 & B1_one_sec_reg & A1L8 & A1L9;
+
+
+--B1_cnt_one_sec[8] is count:count|cnt_one_sec[8]
+--operation mode is normal
+
+B1_cnt_one_sec[8]_lut_out = B1L1 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[8] = DFFEAS(B1_cnt_one_sec[8]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[7] is count:count|cnt_one_sec[7]
+--operation mode is normal
+
+B1_cnt_one_sec[7]_lut_out = B1L2 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[7] = DFFEAS(B1_cnt_one_sec[7]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[6] is count:count|cnt_one_sec[6]
+--operation mode is normal
+
+B1_cnt_one_sec[6]_lut_out = B1L4 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[6] = DFFEAS(B1_cnt_one_sec[6]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--A1L10 is rtl~270
+--operation mode is normal
+
+A1L10 = B1_seg_scan_cnt[0] & B1_cnt_one_sec[8] & B1_cnt_one_sec[7] & B1_cnt_one_sec[6];
+
+
+--B1_cnt_one_sec[1] is count:count|cnt_one_sec[1]
+--operation mode is normal
+
+B1_cnt_one_sec[1]_lut_out = B1L6;
+B1_cnt_one_sec[1] = DFFEAS(B1_cnt_one_sec[1]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[5] is count:count|cnt_one_sec[5]
+--operation mode is normal
+
+B1_cnt_one_sec[5]_lut_out = B1L8 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[5] = DFFEAS(B1_cnt_one_sec[5]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[4] is count:count|cnt_one_sec[4]
+--operation mode is normal
+
+B1_cnt_one_sec[4]_lut_out = B1L10 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[4] = DFFEAS(B1_cnt_one_sec[4]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[3] is count:count|cnt_one_sec[3]
+--operation mode is normal
+
+B1_cnt_one_sec[3]_lut_out = B1L12;
+B1_cnt_one_sec[3] = DFFEAS(B1_cnt_one_sec[3]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--B1_cnt_one_sec[2] is count:count|cnt_one_sec[2]
+--operation mode is normal
+
+B1_cnt_one_sec[2]_lut_out = B1L14 & (!A1L11 # !B1_cnt_one_sec[1] # !A1L10);
+B1_cnt_one_sec[2] = DFFEAS(B1_cnt_one_sec[2]_lut_out, clk, reset, , B1_hz_500_reg, , , , );
+
+
+--A1L11 is rtl~271
+--operation mode is normal
+
+A1L11 = B1_cnt_one_sec[5] & B1_cnt_one_sec[4] & !B1_cnt_one_sec[3] & !B1_cnt_one_sec[2];
+
+
+--B1_cnt_500hz[14] is count:count|cnt_500hz[14]
+--operation mode is normal
+
+B1_cnt_500hz[14]_lut_out = B1L16 & (!A1L16);
+B1_cnt_500hz[14] = DFFEAS(B1_cnt_500hz[14]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[13] is count:count|cnt_500hz[13]
+--operation mode is normal
+
+B1_cnt_500hz[13]_lut_out = B1L17 & (!A1L16);
+B1_cnt_500hz[13] = DFFEAS(B1_cnt_500hz[13]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[12] is count:count|cnt_500hz[12]
+--operation mode is normal
+
+B1_cnt_500hz[12]_lut_out = B1L19 & (!A1L16);
+B1_cnt_500hz[12] = DFFEAS(B1_cnt_500hz[12]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[11] is count:count|cnt_500hz[11]
+--operation mode is normal
+
+B1_cnt_500hz[11]_lut_out = B1L21 & (!A1L16);
+B1_cnt_500hz[11] = DFFEAS(B1_cnt_500hz[11]_lut_out, clk, reset, , , , , , );
+
+
+--A1L12 is rtl~272
+--operation mode is normal
+
+A1L12 = B1_cnt_500hz[14] & B1_cnt_500hz[13] & B1_cnt_500hz[12] & B1_cnt_500hz[11];
+
+
+--B1_cnt_500hz[10] is count:count|cnt_500hz[10]
+--operation mode is normal
+
+B1_cnt_500hz[10]_lut_out = B1L23 & (!A1L16);
+B1_cnt_500hz[10] = DFFEAS(B1_cnt_500hz[10]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[7] is count:count|cnt_500hz[7]
+--operation mode is normal
+
+B1_cnt_500hz[7]_lut_out = B1L25;
+B1_cnt_500hz[7] = DFFEAS(B1_cnt_500hz[7]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[9] is count:count|cnt_500hz[9]
+--operation mode is normal
+
+B1_cnt_500hz[9]_lut_out = B1L27;
+B1_cnt_500hz[9] = DFFEAS(B1_cnt_500hz[9]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[8] is count:count|cnt_500hz[8]
+--operation mode is normal
+
+B1_cnt_500hz[8]_lut_out = B1L29 & (!A1L16);
+B1_cnt_500hz[8] = DFFEAS(B1_cnt_500hz[8]_lut_out, clk, reset, , , , , , );
+
+
+--A1L13 is rtl~273
+--operation mode is normal
+
+A1L13 = B1_cnt_500hz[10] & B1_cnt_500hz[7] & !B1_cnt_500hz[9] & !B1_cnt_500hz[8];
+
+
+--B1_cnt_500hz[6] is count:count|cnt_500hz[6]
+--operation mode is normal
+
+B1_cnt_500hz[6]_lut_out = B1L31;
+B1_cnt_500hz[6] = DFFEAS(B1_cnt_500hz[6]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[5] is count:count|cnt_500hz[5]
+--operation mode is normal
+
+B1_cnt_500hz[5]_lut_out = B1L33;
+B1_cnt_500hz[5] = DFFEAS(B1_cnt_500hz[5]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[4] is count:count|cnt_500hz[4]
+--operation mode is normal
+
+B1_cnt_500hz[4]_lut_out = B1L35;
+B1_cnt_500hz[4] = DFFEAS(B1_cnt_500hz[4]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[3] is count:count|cnt_500hz[3]
+--operation mode is normal
+
+B1_cnt_500hz[3]_lut_out = B1L37;
+B1_cnt_500hz[3] = DFFEAS(B1_cnt_500hz[3]_lut_out, clk, reset, , , , , , );
+
+
+--A1L14 is rtl~274
+--operation mode is normal
+
+A1L14 = B1_cnt_500hz[6] & B1_cnt_500hz[5] & B1_cnt_500hz[4] & B1_cnt_500hz[3];
+
+
+--B1_cnt_500hz[2] is count:count|cnt_500hz[2]
+--operation mode is normal
+
+B1_cnt_500hz[2]_lut_out = B1L39;
+B1_cnt_500hz[2] = DFFEAS(B1_cnt_500hz[2]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[1] is count:count|cnt_500hz[1]
+--operation mode is normal
+
+B1_cnt_500hz[1]_lut_out = B1L41;
+B1_cnt_500hz[1] = DFFEAS(B1_cnt_500hz[1]_lut_out, clk, reset, , , , , , );
+
+
+--B1_cnt_500hz[0] is count:count|cnt_500hz[0]
+--operation mode is normal
+
+B1_cnt_500hz[0]_lut_out = B1L43;
+B1_cnt_500hz[0] = DFFEAS(B1_cnt_500hz[0]_lut_out, clk, reset, , , , , , );
+
+
+--A1L15 is rtl~275
+--operation mode is normal
+
+A1L15 = B1_cnt_500hz[2] & B1_cnt_500hz[1] & B1_cnt_500hz[0];
+
+
+--A1L16 is rtl~276
+--operation mode is normal
+
+A1L16 = A1L12 & A1L13 & A1L14 & A1L15;
+
+
+--B1L1 is count:count|add~386
+--operation mode is normal
+
+B1L1_carry_eqn = B1L3;
+B1L1 = B1_cnt_one_sec[8] $ (B1L1_carry_eqn);
+
+
+--B1L2 is count:count|add~391
+--operation mode is arithmetic
+
+B1L2_carry_eqn = B1L5;
+B1L2 = B1_cnt_one_sec[7] $ (!B1L2_carry_eqn);
+
+--B1L3 is count:count|add~393
+--operation mode is arithmetic
+
+B1L3 = CARRY(B1_cnt_one_sec[7] & (!B1L5));
+
+
+--B1L4 is count:count|add~396
+--operation mode is arithmetic
+
+B1L4_carry_eqn = B1L9;
+B1L4 = B1_cnt_one_sec[6] $ (B1L4_carry_eqn);
+
+--B1L5 is count:count|add~398
+--operation mode is arithmetic
+
+B1L5 = CARRY(!B1L9 # !B1_cnt_one_sec[6]);
+
+
+--B1L6 is count:count|add~401
+--operation mode is arithmetic
+
+B1L6 = B1_cnt_one_sec[1] $ B1_seg_scan_cnt[0];
+
+--B1L7 is count:count|add~403
+--operation mode is arithmetic
+
+B1L7 = CARRY(B1_cnt_one_sec[1] & B1_seg_scan_cnt[0]);
+
+
+--B1L8 is count:count|add~406
+--operation mode is arithmetic
+
+B1L8_carry_eqn = B1L11;
+B1L8 = B1_cnt_one_sec[5] $ (!B1L8_carry_eqn);
+
+--B1L9 is count:count|add~408
+--operation mode is arithmetic
+
+B1L9 = CARRY(B1_cnt_one_sec[5] & (!B1L11));
+
+
+--B1L10 is count:count|add~411
+--operation mode is arithmetic
+
+B1L10_carry_eqn = B1L13;
+B1L10 = B1_cnt_one_sec[4] $ (B1L10_carry_eqn);
+
+--B1L11 is count:count|add~413
+--operation mode is arithmetic
+
+B1L11 = CARRY(!B1L13 # !B1_cnt_one_sec[4]);
+
+
+--B1L12 is count:count|add~416
+--operation mode is arithmetic
+
+B1L12_carry_eqn = B1L15;
+B1L12 = B1_cnt_one_sec[3] $ (!B1L12_carry_eqn);
+
+--B1L13 is count:count|add~418
+--operation mode is arithmetic
+
+B1L13 = CARRY(B1_cnt_one_sec[3] & (!B1L15));
+
+
+--B1L14 is count:count|add~421
+--operation mode is arithmetic
+
+B1L14_carry_eqn = B1L7;
+B1L14 = B1_cnt_one_sec[2] $ (B1L14_carry_eqn);
+
+--B1L15 is count:count|add~423
+--operation mode is arithmetic
+
+B1L15 = CARRY(!B1L7 # !B1_cnt_one_sec[2]);
+
+
+--B1L16 is count:count|add~426
+--operation mode is normal
+
+B1L16_carry_eqn = B1L18;
+B1L16 = B1_cnt_500hz[14] $ (!B1L16_carry_eqn);
+
+
+--B1L17 is count:count|add~431
+--operation mode is arithmetic
+
+B1L17_carry_eqn = B1L20;
+B1L17 = B1_cnt_500hz[13] $ (B1L17_carry_eqn);
+
+--B1L18 is count:count|add~433
+--operation mode is arithmetic
+
+B1L18 = CARRY(!B1L20 # !B1_cnt_500hz[13]);
+
+
+--B1L19 is count:count|add~436
+--operation mode is arithmetic
+
+B1L19_carry_eqn = B1L22;
+B1L19 = B1_cnt_500hz[12] $ (!B1L19_carry_eqn);
+
+--B1L20 is count:count|add~438
+--operation mode is arithmetic
+
+B1L20 = CARRY(B1_cnt_500hz[12] & (!B1L22));
+
+
+--B1L21 is count:count|add~441
+--operation mode is arithmetic
+
+B1L21_carry_eqn = B1L24;
+B1L21 = B1_cnt_500hz[11] $ (B1L21_carry_eqn);
+
+--B1L22 is count:count|add~443
+--operation mode is arithmetic
+
+B1L22 = CARRY(!B1L24 # !B1_cnt_500hz[11]);
+
+
+--B1L23 is count:count|add~446
+--operation mode is arithmetic
+
+B1L23_carry_eqn = B1L28;
+B1L23 = B1_cnt_500hz[10] $ (!B1L23_carry_eqn);
+
+--B1L24 is count:count|add~448
+--operation mode is arithmetic
+
+B1L24 = CARRY(B1_cnt_500hz[10] & (!B1L28));
+
+
+--B1L25 is count:count|add~451
+--operation mode is arithmetic
+
+B1L25_carry_eqn = B1L32;
+B1L25 = B1_cnt_500hz[7] $ (B1L25_carry_eqn);
+
+--B1L26 is count:count|add~453
+--operation mode is arithmetic
+
+B1L26 = CARRY(!B1L32 # !B1_cnt_500hz[7]);
+
+
+--B1L27 is count:count|add~456
+--operation mode is arithmetic
+
+B1L27_carry_eqn = B1L30;
+B1L27 = B1_cnt_500hz[9] $ (B1L27_carry_eqn);
+
+--B1L28 is count:count|add~458
+--operation mode is arithmetic
+
+B1L28 = CARRY(!B1L30 # !B1_cnt_500hz[9]);
+
+
+--B1L29 is count:count|add~461
+--operation mode is arithmetic
+
+B1L29_carry_eqn = B1L26;
+B1L29 = B1_cnt_500hz[8] $ (!B1L29_carry_eqn);
+
+--B1L30 is count:count|add~463
+--operation mode is arithmetic
+
+B1L30 = CARRY(B1_cnt_500hz[8] & (!B1L26));
+
+
+--B1L31 is count:count|add~466
+--operation mode is arithmetic
+
+B1L31_carry_eqn = B1L34;
+B1L31 = B1_cnt_500hz[6] $ (!B1L31_carry_eqn);
+
+--B1L32 is count:count|add~468
+--operation mode is arithmetic
+
+B1L32 = CARRY(B1_cnt_500hz[6] & (!B1L34));
+
+
+--B1L33 is count:count|add~471
+--operation mode is arithmetic
+
+B1L33_carry_eqn = B1L36;
+B1L33 = B1_cnt_500hz[5] $ (B1L33_carry_eqn);
+
+--B1L34 is count:count|add~473
+--operation mode is arithmetic
+
+B1L34 = CARRY(!B1L36 # !B1_cnt_500hz[5]);
+
+
+--B1L35 is count:count|add~476
+--operation mode is arithmetic
+
+B1L35_carry_eqn = B1L38;
+B1L35 = B1_cnt_500hz[4] $ (!B1L35_carry_eqn);
+
+--B1L36 is count:count|add~478
+--operation mode is arithmetic
+
+B1L36 = CARRY(B1_cnt_500hz[4] & (!B1L38));
+
+
+--B1L37 is count:count|add~481
+--operation mode is arithmetic
+
+B1L37_carry_eqn = B1L40;
+B1L37 = B1_cnt_500hz[3] $ (B1L37_carry_eqn);
+
+--B1L38 is count:count|add~483
+--operation mode is arithmetic
+
+B1L38 = CARRY(!B1L40 # !B1_cnt_500hz[3]);
+
+
+--B1L39 is count:count|add~486
+--operation mode is arithmetic
+
+B1L39_carry_eqn = B1L42;
+B1L39 = B1_cnt_500hz[2] $ (!B1L39_carry_eqn);
+
+--B1L40 is count:count|add~488
+--operation mode is arithmetic
+
+B1L40 = CARRY(B1_cnt_500hz[2] & (!B1L42));
+
+
+--B1L41 is count:count|add~491
+--operation mode is arithmetic
+
+B1L41_carry_eqn = B1L44;
+B1L41 = B1_cnt_500hz[1] $ (B1L41_carry_eqn);
+
+--B1L42 is count:count|add~493
+--operation mode is arithmetic
+
+B1L42 = CARRY(!B1L44 # !B1_cnt_500hz[1]);
+
+
+--B1L43 is count:count|add~496
+--operation mode is arithmetic
+
+B1L43 = !B1_cnt_500hz[0];
+
+--B1L44 is count:count|add~498
+--operation mode is arithmetic
+
+B1L44 = CARRY(B1_cnt_500hz[0]);
+
+
+--clk is clk
+--operation mode is input
+
+clk = INPUT();
+
+
+--reset is reset
+--operation mode is input
+
+reset = INPUT();
+
+
+--seg_a is seg_a
+--operation mode is output
+
+seg_a = OUTPUT(D1L13);
+
+
+--seg_b is seg_b
+--operation mode is output
+
+seg_b = OUTPUT(D1L14);
+
+
+--seg_c is seg_c
+--operation mode is output
+
+seg_c = OUTPUT(D1L15);
+
+
+--seg_d is seg_d
+--operation mode is output
+
+seg_d = OUTPUT(D1L18);
+
+
+--seg_e is seg_e
+--operation mode is output
+
+seg_e = OUTPUT(D1L19);
+
+
+--seg_f is seg_f
+--operation mode is output
+
+seg_f = OUTPUT(D1L20);
+
+
+--seg_g is seg_g
+--operation mode is output
+
+seg_g = OUTPUT(!D1L21);
+
+
+--seg_dp is seg_dp
+--operation mode is output
+
+seg_dp = OUTPUT(!D1L17);
+
+
+--com0 is com0
+--operation mode is output
+
+com0 = OUTPUT(!D1L1);
+
+
+--com1 is com1
+--operation mode is output
+
+com1 = OUTPUT(D1L2);
+
+
+--com2 is com2
+--operation mode is output
+
+com2 = OUTPUT(D1L3);
+
+
+--com3 is com3
+--operation mode is output
+
+com3 = OUTPUT(D1L4);
+
+

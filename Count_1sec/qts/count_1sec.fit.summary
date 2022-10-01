@@ -1,0 +1,16 @@
+Fitter Status : Successful - Fri Dec 04 17:39:14 2015
+Quartus II Version : 7.1 Build 156 04/30/2007 SJ Full Version
+Revision Name : count_1sec
+Top-level Entity Name : count_1sec
+Family : Cyclone II
+Device : EP2C8Q208C8
+Timing Models : Final
+Total logic elements : 94 / 8,256 ( 1 % )
+    Total combinational functions : 93 / 8,256 ( 1 % )
+    Dedicated logic registers : 49 / 8,256 ( < 1 % )
+Total registers : 49
+Total pins : 26 / 138 ( 19 % )
+Total virtual pins : 0
+Total memory bits : 0 / 165,888 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 36 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
